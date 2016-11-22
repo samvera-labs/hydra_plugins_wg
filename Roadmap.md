@@ -22,7 +22,7 @@ _NOTE: Dates of meetings subject to change._
 1. First round of community feedback on Guidelines has been compiled.
 1. First round of development has been completed, ready to report.
 
-### Meeting 5: 2016-01-03
+### Meeting 5: 2016-01-10
 
 1. Guidlines have been updated to reflect community feedback, announced publicly with call for community feedback.
 1. Second round of development has been completed, ready to report and demo.
