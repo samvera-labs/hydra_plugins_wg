@@ -22,22 +22,22 @@ _NOTE: Dates of meetings subject to change._
 1. First round of community feedback on Guidelines has been compiled.
 1. First round of development has been completed, ready to report.
 
-### Meeting 5: 2016-01-10
+### Meeting 5: 2017-01-10
 
 1. Guidlines have been updated to reflect community feedback, announced publicly with call for community feedback.
 1. Second round of development has been completed, ready to report and demo.
 
-### Meeting 6: 2016-01-17
+### Meeting 6: 2017-01-17
 
 1. Second round of community feedback on Guidelines has been compiled.
 1. Third round of development has been completed, ready to report and demo.
 
-### Meeting 7: 2016-01-31
+### Meeting 7: 2017-01-31
 
 1. Release candidate for Hydra Plugin Guidelines has been tagged, announced publicly, and call for community feedback.
 1. Fourth round of development has been completed, ready to report and demo.
 
-### Meeting 8: 2016-02-14
+### Meeting 8: 2017-02-14
 
 1. v1.x of Guidelines have been published.
 1. Release candidates for proof-of-concept Hydra plugin projects have been tagged.
