@@ -10,7 +10,7 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 ## Architecture
 
-1. Plugins **must** be Rails gems.
+1. Plugins **must** be Ruby gems.
 
 1. Plugins **should** be Railties or Rails engines unless there is good reason to do otherwise.
 
