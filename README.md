@@ -1,2 +1,2 @@
 # hydra_plugins_wg
-Work area for the Hydra Plugins Working Group
+This is the working repository for the [Hydra Plugins Working Group](https://wiki.duraspace.org/display/hydra/Hydra+Plugins+Working+Group)
