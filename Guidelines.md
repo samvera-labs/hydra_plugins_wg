@@ -12,7 +12,7 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins **must** be Ruby gems.
 
-1. Plugins **should** be Railties or Rails engines unless there is good reason to do otherwise.
+1. Plugins **should** be Railties or Rails engines.
 
 1. Plugins **must** have a unique namespace under which classes and modules are defined.
 
