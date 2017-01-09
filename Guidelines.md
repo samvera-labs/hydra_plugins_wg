@@ -36,9 +36,14 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins **should** provide information on any changes made to the host application that could not be undone after a failed installation.
 
-## Installation documentation
+## Installation Documentation
 
-1. Installation instructions for plugins **should** include a list of all available installation options with descriptions of how they affect the installation.
+The term **installation** in this context means all steps required to enable the plugin within the host application. This may include, but is not limited to:
+  * Rails generators
+  * ad-hoc scripts
+  * manual setup instructions
+
+1. Installation documentation for plugins **should** include a list of all available installation options with a description of their effects.
 
 1. Plugin installation instructions **should** include screen shots of any expected changes to the UI.
 
@@ -48,14 +53,17 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Custom error messages **should** include tips on how to fix the error when such information is known.
 
-### Interface documentation
+## Interface documentation
 
-1. All public instance methods under the plugin's namespace are considered to be part of the plugin's interface, and should be documented.
+The term **interface** in this context means all the ways in which the host application may invoke, or alter, a plugin's behavior. This includes, but may not be limited to:
+  * All public instance methods under the plugin's namespace.
+  * All class methods and module methods that plugin is expecting to be called from the context of the host application.
+  * All configuration files and settings that live in the host application and affect the plugin's behavior.
 
-1. All class methods and module methods intended to be invoked by the host application are considered to be part of the plugin's interface, and **should** be documented.
+1. A plugin's interface **must** be documented.
 
-1. All configuration files and settings that affect the plugin's behavior are considered to be part of the plugin's interface, and should be documented.
+1. Public instance methods, class methods, and module methods that are part of the plugin's interface **must** be documented with YARD, using `@api` tags to indicate which methods are part of the plugin's interface.
 
-### Tutorials
+## Tutorials
 
 1. Plugin documentation **should** include a tutorial on how to use each feature the plugin offers.
