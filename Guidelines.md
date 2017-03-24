@@ -42,9 +42,11 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
   **Justification:** It is always a good idea to provide implementers with as much meaningful information as possible, so that they can either resolve the issue themselves, or provide a meaningful error message to the community or in a bug report when seeking help. Plugins should prefer to fail at installation time rather than later on if at all possible.
 
-1. Plugins **should** abort installation if required dependencies are missing.
+1. Plugins **should** abort installation if the host is missing required dependencies that are not in the plugin's Gemspec.
 
   **Justification:** By failing fast, rather than later on during Application startup (or worse, during the runtime of a request) a plugin makes it easier to catch and resolve errors. Plugin usage becomes much more maintainable for the implementer when plugins can be relied upon to signal errors as early as possible, rather than failing in hard-to-predict ways at runtime.
+
+  An acceptable alternative to aborting installation of the plugin, would be to ensure graceful failure in the absence of required dependencies.
 
 1. Plugins **should** undo any changes made to the host application during a failed installation.
 
