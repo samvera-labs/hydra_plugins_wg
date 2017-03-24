@@ -77,3 +77,5 @@ The term **interface** in this context means all the ways in which the host appl
 ## Tutorials
 
 1. Plugin documentation **should** include a tutorial on how to use each feature the plugin offers.
+
+  **Justification:** Tutorials help to inform users, and potential users, about all of the features that a plugin offers. More importantly, they provide instruction on installation and configuration that would otherwise be difficult to discover.
