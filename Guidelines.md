@@ -32,15 +32,27 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins **should** use Rails generators for making changes to their host Hydra application.
 
+1. Plugins **should** only generate or insert code into the host application when necessary.
+
+  **Justification:** Generated code in a client application represents a significant, and often invisible, public interface for the plugin. Such code is brittle and can easily be broken by point release of a plugin, in violation of the spirit of Semantic Versioning. This can make plugins a significant source of maintenance burden for implementers, who must constantly audit and fix code they did not write and may not be familiar with, when upgrading dependencies. Ideally, a plugin should prefer to keep code, configuration, and initializers isolated within the plugin's gem, allowing implementers to copy over files themselves only if they find it necessary for customization purposes.
+
 ## Handling installation failures
 
 1. Plugins **should** print meaningful error messages in case of a failure during installation.
 
-1. Plugins **should** abort installation if required dependencies are missing.
+  **Justification:** It is always a good idea to provide implementers with as much meaningful information as possible, so that they can either resolve the issue themselves, or provide a meaningful error message to the community or in a bug report when seeking help. Plugins should prefer to fail at installation time rather than later on if at all possible.
+
+1. Plugins **should** abort installation if the host is missing required dependencies that are not in the plugin's Gemspec.
+
+  **Justification:** By failing fast, rather than later on during Application startup (or worse, during the runtime of a request) a plugin makes it easier to catch and resolve errors. Plugin usage becomes much more maintainable for the implementer when plugins can be relied upon to signal errors as early as possible, rather than failing in hard-to-predict ways at runtime.
+
+  An acceptable alternative to aborting installation of the plugin, would be to ensure graceful failure in the absence of required dependencies.
 
   **Justification:** By failing fast, rather than later on during Application startup (or worse, during the runtime of a request) a plugin makes it easier to catch and resolve errors. Plugin usage becomes much more maintainable for the implementer when plugins can be relied upon to signal errors as early as possible, rather than failing in hard-to-predict ways at runtime.
 
 1. Plugins **should** undo any changes made to the host application during a failed installation.
+
+  **Justification:** It becomes much easier for the community to adopt plugins if they can rely on plugins to be good citizens. Cleaning up after a failed installation means that implementers can have faith that their codebase won't be left in a broken state, especially in light of other guidelines which encourage plugins to "fail fast" at installation time.
 
 1. Plugins **should** provide information on any changes made to the host application that could not be undone after a failed installation.
 
@@ -76,6 +88,10 @@ The term **interface** in this context means all the ways in which the host appl
 
 1. Public instance methods, class methods, and module methods that are part of the plugin's interface **must** be documented with YARD, using `@api` tags to indicate which methods are part of the plugin's interface.
 
+  **Justification:** The use of the `@api` tag is a convenient way for plugin authors to define methods intended to be used by downstream adopters, and conforms to existing Hydra contribution guidelines that specify including inline documentation in YARD.
+
 ## Tutorials
 
 1. Plugin documentation **should** include a tutorial on how to use each feature the plugin offers.
+
+  **Justification:** Tutorials help to inform users, and potential users, about all of the features that a plugin offers. More importantly, they provide instruction on installation and configuration that would otherwise be difficult to discover.
