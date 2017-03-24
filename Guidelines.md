@@ -38,6 +38,8 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins **should** abort installation if required dependencies are missing.
 
+  **Justification:** By failing fast, rather than later on during Application startup (or worse, during the runtime of a request) a plugin makes it easier to catch and resolve errors. Plugin usage becomes much more maintainable for the implementer when plugins can be relied upon to signal errors as early as possible, rather than failing in hard-to-predict ways at runtime.
+
 1. Plugins **should** undo any changes made to the host application during a failed installation.
 
 1. Plugins **should** provide information on any changes made to the host application that could not be undone after a failed installation.
