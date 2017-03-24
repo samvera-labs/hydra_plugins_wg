@@ -44,7 +44,7 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins **should** abort installation if the host is missing required dependencies that are not in the plugin's Gemspec.
 
-  **Justification:** By failing fast, rather than later on during Application startup (or worse, during the runtime of a request) a plugin makes it easier to catch and resolve errors. Plugin usage becomes much more maintainable for the implementer when plugins can be relied upon to signal errors as early as possible, rather than failing in hard-to-predict ways at runtime.
+  **Justification:** Non-gemspec dependencies, like FFMPEG, are by their nature hard to enforce the presence of. By detecting their absence and failing fast, rather than later on during Application startup (or worse, during the runtime of a request) a plugin makes it easier to catch and resolve errors. Plugin usage becomes much more maintainable for the implementer when plugins can be relied upon to signal errors as early as possible, rather than failing in hard-to-predict ways at runtime.
 
   An acceptable alternative to aborting installation of the plugin, would be to ensure graceful failure in the absence of required dependencies.
 
