@@ -74,6 +74,8 @@ The term **interface** in this context means all the ways in which the host appl
 
 1. Public instance methods, class methods, and module methods that are part of the plugin's interface **must** be documented with YARD, using `@api` tags to indicate which methods are part of the plugin's interface.
 
+  **Justification:** The use of the `@api` tag is a convenient way for plugin authors to define methods intended to be used by downstream adopters, and conforms to existing Hydra contribution guidelines that specify including inline documentation in YARD.
+
 ## Tutorials
 
 1. Plugin documentation **should** include a tutorial on how to use each feature the plugin offers.
