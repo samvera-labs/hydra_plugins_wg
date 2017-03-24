@@ -48,8 +48,6 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
   An acceptable alternative to aborting installation of the plugin, would be to ensure graceful failure in the absence of required dependencies.
 
-  **Justification:** By failing fast, rather than later on during Application startup (or worse, during the runtime of a request) a plugin makes it easier to catch and resolve errors. Plugin usage becomes much more maintainable for the implementer when plugins can be relied upon to signal errors as early as possible, rather than failing in hard-to-predict ways at runtime.
-
 1. Plugins **should** undo any changes made to the host application during a failed installation.
 
   **Justification:** It becomes much easier for the community to adopt plugins if they can rely on plugins to be good citizens. Cleaning up after a failed installation means that implementers can have faith that their codebase won't be left in a broken state, especially in light of other guidelines which encourage plugins to "fail fast" at installation time.
