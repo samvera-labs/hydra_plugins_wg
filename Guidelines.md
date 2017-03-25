@@ -67,7 +67,9 @@ The term **installation** in this context means all steps required to enable the
 
 ## Error handling
 
-1. Plugins **should** use custom error classes when raising errors. This allows implementers to easily identify a raised exception as coming from the plugin, as well as providing a convenient way to rescue from specific exceptions as needed.
+1. Plugins **should** use custom error classes when raising errors.
+
+  **Justification:** Standard or default exception classes do not provide plugin-specific information about the error. Custom error classes allow implementers to easily identify a raised exception as coming from the plugin, as well as providing a convenient way to rescue from specific exceptions as needed.
 
 1. Custom error messages **should** include tips on how to fix the error when such information is known.
 
