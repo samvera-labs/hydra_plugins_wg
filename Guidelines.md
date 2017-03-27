@@ -32,6 +32,12 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins **should** use Rails generators for making changes to their host Hydra application.
 
+   **Justification:**
+
+     * Generators are a proven and robust standard for allowing gems to modify host applications and provide feedback on changes that have occurred.
+     
+     * Generators provide a conventional location for implementers to explore and debug the code that is makes changes to a host application.
+
 1. Plugins **should** only generate or insert code into the host application when necessary.
 
   **Justification:** Generated code in a client application represents a significant, and often invisible, public interface for the plugin. Such code is brittle and can easily be broken by point release of a plugin, in violation of the spirit of Semantic Versioning. This can make plugins a significant source of maintenance burden for implementers, who must constantly audit and fix code they did not write and may not be familiar with, when upgrading dependencies. Ideally, a plugin should prefer to keep code, configuration, and initializers isolated within the plugin's gem, allowing implementers to copy over files themselves only if they find it necessary for customization purposes.
