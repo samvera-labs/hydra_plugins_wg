@@ -73,6 +73,8 @@ The term **installation** in this context means all steps required to enable the
 
 1. Custom error messages **should** include tips on how to fix the error when such information is known.
 
+  **Justification:** Tips help the user recover more quickly from the error condition and increase user confidence. Adding tips directly to the plugin eases the support requirements on the larger community.
+
 ## Interface documentation
 
 The term **interface** in this context means all the ways in which the host application may invoke, or alter, a plugin's behavior. This includes, but may not be limited to:
