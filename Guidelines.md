@@ -65,6 +65,8 @@ The term **installation** in this context means all steps required to enable the
 
 1. Plugin installation instructions **should** include screen shots of any expected changes to the UI.
 
+  **Justification:** Screen shots serve as a visual confirmation to the implementer that the plugin is working as advertised. Textual descriptions of UI changes are encouraged as well, but oftentimes pictures are more useful, and more concise.
+
 ## Error handling
 
 1. Plugins **should** use custom error classes when raising errors.
