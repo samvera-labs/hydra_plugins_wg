@@ -1,7 +1,6 @@
 # Hydra Plugin Development Guidelines
 
-This document contains guidelines and expectations for developing Hydra plugins. It is one of the stated deliverables of the [Hydra Plugins Working Group](https://wiki.duraspace.org/display/hydra/
-Hydra+Plugins+Working+Group).
+This document contains guidelines and expectations for developing Hydra plugins. It is one of the stated deliverables of the [Hydra Plugins Working Group](https://wiki.duraspace.org/display/hydra/Hydra+Plugins+Working+Group).
 
 These guidelines are supplementary, and subordinate, to existing guidelines that are documented elsewhere, including:
   * [**General contributing guidelines**](https://github.com/projecthydra/hydra/blob/master/CONTRIBUTING.md)
