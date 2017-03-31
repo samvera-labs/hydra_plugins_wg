@@ -23,7 +23,7 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins that are mounted Rails Engines **must** specify the routing proxy when using URL helpers created by Rails routes.
 
-  *Rationale:** In the context of Rails Engines, the default routing proxy depends on your context. Typically, it will be either the routing proxy for the main application, or the routing proxy for the engine. By default, Rails creates helper methods for accessing the routing proxies within your views. The helper method for the main applications routing proxy is `main_app`, while the helper method for the routing proxy of your engine is the engine's name, downcased and underscored, e.g. if your engine is named `MyCoolPlugin`, then the routing proxy can be accessed via the helper method `my_cool_plugin`.
+  **Justification:** In the context of Rails Engines, the default routing proxy depends on your context. Typically, it will be either the routing proxy for the main application, or the routing proxy for the engine. By default, Rails creates helper methods for accessing the routing proxies within your views. The helper method for the main applications routing proxy is `main_app`, while the helper method for the routing proxy of your engine is the engine's name, downcased and underscored, e.g. if your engine is named `MyCoolPlugin`, then the routing proxy can be accessed via the helper method `my_cool_plugin`.
 
   This guideline is meant to reinforce the [exsiting guidelines for using routing proxies in Rails Engines](http://edgeguides.rubyonrails.org/engines.html#routes). Adhering to this guideline reduces potential conflict when using url helpers across different Hydra plugins.
 
