@@ -49,7 +49,7 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins **should** provide information on any changes made to the host application that could not be undone after a failed installation.
 
-1. Plugins should not overwrite classes or modules in the host application.
+1. Plugins **should not** overwrite classes or modules in the host application.
 
   **Justification:** Overwriting classes or modules may change behavior expected by the host application, other plugins, or third party gems.
 
