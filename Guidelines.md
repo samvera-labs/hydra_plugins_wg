@@ -41,8 +41,6 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
   **Justification:** It is always a good idea to provide implementers with as much meaningful information as possible, so that they can either resolve the issue themselves, or provide a meaningful error message to the community or in a bug report when seeking help. Plugins should prefer to fail at installation time rather than later on if at all possible.
 
-1. Plugins **should** abort installation if required dependencies are missing.
-
 1. Plugins **should** undo any changes made to the host application during a failed installation.
 
   **Justification:** It becomes much easier for the community to adopt plugins if they can rely on plugins to be good citizens. Cleaning up after a failed installation means that implementers can have faith that their codebase won't be left in a broken state, especially in light of other guidelines which encourage plugins to "fail fast" at installation time.
