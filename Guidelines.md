@@ -1,7 +1,6 @@
 # Hydra Plugin Development Guidelines
 
-This document contains guidelines and expectations for developing Hydra plugins. It is one of the stated deliverables of the [Hydra Plugins Working Group](https://wiki.duraspace.org/display/hydra/
-Hydra+Plugins+Working+Group).
+This document contains guidelines and expectations for developing Hydra plugins. It is one of the stated deliverables of the [Hydra Plugins Working Group](https://wiki.duraspace.org/display/hydra/Hydra+Plugins+Working+Group).
 
 These guidelines are supplementary, and subordinate, to existing guidelines that are documented elsewhere, including:
   * [**General contributing guidelines**](https://github.com/projecthydra/hydra/blob/master/CONTRIBUTING.md)
@@ -24,9 +23,9 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins that are mounted Rails Engines **must** specify the routing proxy when using URL helpers created by Rails routes.
 
-  *Rationale:** In the context of Rails Engines, the default routing proxy depends on your context. Typically, it will be either the routing proxy for the main application, or the routing proxy for the engine. By default, Rails creates helper methods for accessing the routing proxies within your views. The helper method for the main applications routing proxy is `main_app`, while the helper method for the routing proxy of your engine is the engine's name, downcased and underscored, e.g. if your engine is named `MyCoolPlugin`, then the routing proxy can be accessed via the helper method `my_cool_plugin`.
+  **Justification:** In the context of Rails Engines, the default routing proxy depends on your context. Typically, it will be either the routing proxy for the main application, or the routing proxy for the engine. By default, Rails creates helper methods for accessing the routing proxies within your views. The helper method for the main applications routing proxy is `main_app`, while the helper method for the routing proxy of your engine is the engine's name, downcased and underscored, e.g. if your engine is named `MyCoolPlugin`, then the routing proxy can be accessed via the helper method `my_cool_plugin`.
 
-  This guideline is meant to reinforce the [exsiting guidelines for using routing proxies in Rails Engines](http://edgeguides.rubyonrails.org/engines.html#routes). Adhering to this guideline reduces potential conflict when using url helpers across different Hydra plugins.
+  This guideline is meant to reinforce the [existing guidelines for using routing proxies in Rails Engines](http://edgeguides.rubyonrails.org/engines.html#routes). Adhering to this guideline reduces potential conflict when using url helpers across different Hydra plugins.
 
 ## Installation
 
@@ -50,7 +49,7 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
 1. Plugins **should** provide information on any changes made to the host application that could not be undone after a failed installation.
 
-1. Plugins should not overwrite classes or modules in the host application.
+1. Plugins **should not** overwrite classes or modules in the host application.
 
   **Justification:** Overwriting classes or modules may change behavior expected by the host application, other plugins, or third party gems.
 
@@ -65,11 +64,17 @@ The term **installation** in this context means all steps required to enable the
 
 1. Plugin installation instructions **should** include screen shots of any expected changes to the UI.
 
+  **Justification:** Screen shots serve as a visual confirmation to the implementer that the plugin is working as advertised. Textual descriptions of UI changes are encouraged as well, but oftentimes pictures are more useful, and more concise.
+
 ## Error handling
 
-1. Plugins **should** use custom error classes when raising errors. This allows implementers to easily identify a raised exception as coming from the plugin, as well as providing a convenient way to rescue from specific exceptions as needed.
+1. Plugins **should** use custom error classes when raising errors.
+
+  **Justification:** Standard or default exception classes do not provide plugin-specific information about the error. Custom error classes allow implementers to easily identify a raised exception as coming from the plugin, as well as providing a convenient way to rescue from specific exceptions as needed.
 
 1. Custom error messages **should** include tips on how to fix the error when such information is known.
+
+  **Justification:** Tips help the user recover more quickly from the error condition and increase user confidence. Adding tips directly to the plugin eases the support requirements on the larger community.
 
 ## Interface documentation
 
@@ -82,7 +87,7 @@ The term **interface** in this context means all the ways in which the host appl
 
   **Justification:** Without documentation, plugin adopters will not understand the plugin interface's expectations and usage.
   
-1. Public instance methods, class methods, and module methods that are part of the plugin's interface **must** be documented with YARD, using `@api` tags to indicate which methods are part of the plugin's interface.
+1. Public instance methods, class methods, and module methods that are part of the plugin's interface **must** be documented with [YARD](http://yardoc.org/), using `@api` tags to indicate which methods are part of the plugin's interface.
 
   **Justification:** The use of the `@api` tag is a convenient way for plugin authors to define methods intended to be used by downstream adopters, and conforms to existing Hydra contribution guidelines that specify including inline documentation in YARD.
 
