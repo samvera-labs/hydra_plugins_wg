@@ -60,6 +60,8 @@ The term **installation** in this context means all steps required to enable the
 
 1. Installation documentation for plugins **should** include a list of all available installation options with a description of their effects.
 
+  **Justification:** It should not be left up to the implementer to figure out the various ways a plugin may be installed.
+
 1. Plugin installation instructions **should** include screen shots of any expected changes to the UI.
 
    **Justification:** Screen shots serve as a visual confirmation to the implementer that the plugin is working as advertised. Textual descriptions of UI changes are encouraged as well, but oftentimes pictures are more useful, and more concise.
