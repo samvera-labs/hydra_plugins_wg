@@ -45,7 +45,9 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 
    **Justification:** It becomes much easier for the community to adopt plugins if they can rely on plugins to be good citizens. Cleaning up after a failed installation means that implementers can have faith that their codebase won't be left in a broken state, especially in light of other guidelines which encourage plugins to "fail fast" at installation time.
 
-1. Plugins **should** provide information on any changes made to the host application that could not be undone after a failed installation.
+1. Plugins **should** provide a summary of changes made to the host application in a post-install message.
+
+  **Justification:** Plugin implementers need to know what has changed in the host application so they can undo those changes if necessary.
 
 1. Plugins **should not** overwrite classes or modules in the host application.
 
