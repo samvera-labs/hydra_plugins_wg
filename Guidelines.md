@@ -34,6 +34,15 @@ These guidelines are supplementary and subordinate to existing guidelines that a
 
    This guideline is meant to reinforce the [existing guidelines for using routing proxies in Rails Engines](http://edgeguides.rubyonrails.org/engines.html#routes). Adhering to this guideline reduces potential conflict when using url helpers across different Hydra plugins.
 
+1. Plugins **should not** overwrite classes or modules from other gems.
+
+  **Rationale:**
+    * Overwriting classes or modules from other gems risks altering the interface in unexpected ways, which can cause bugs when code from other gems, or the host application, tries to interact with those interfaces.
+    * Overwriting classes or modules from other gems risks falling behind upstream changes to those gems, which can also lead to unexpected results when 
+
+1. Plugins should not monkey patch classes or modules from other gems.
+
+
 ## Installation
 
 1. Plugins **should** use Rails generators for making changes to their host Hydra application.
