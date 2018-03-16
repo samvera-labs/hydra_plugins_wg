@@ -6,6 +6,10 @@ These guidelines are supplementary and subordinate to existing guidelines that a
   * [**General contributing guidelines**](https://github.com/projecthydra/hydra/blob/master/CONTRIBUTING.md)
   * [**Project promotion process**](http://projecthydra-labs.github.io/promotion.html)
 
+## What is a "Hydra plugin"?
+
+A Hydra plugin is a Ruby gem that interacts with the Hyrda framework in the context of a Rails application.
+
 ## Architecture
 
 1. A plugins **must** be a Ruby gem.
