@@ -53,7 +53,7 @@ These guidelines are supplementary and subordinate to existing guidelines that a
 1. Plugins **should** print meaningful error messages in case of a failure during installation.
 
    **Justification:** It is always a good idea to provide implementers with as much meaningful information as possible, so that they can either resolve the issue themselves, or provide a meaningful error message to the community or in a bug report when seeking help. Plugins should prefer to fail at installation time rather than later on if at all possible.
-
+   
 1. Plugins **should** abort installation if required dependencies are missing.
 
 1. Plugins **should** undo any changes made to the host application during a failed installation.
