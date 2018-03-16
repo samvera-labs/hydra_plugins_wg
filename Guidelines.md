@@ -1,22 +1,24 @@
-# Hydra Plugin Development Guidelines
+# Hyrax Plugin Development Guidelines
 
-This document contains guidelines and expectations for developing Hydra plugins. It is one of the stated deliverables of the [Hydra Plugins Working Group](https://wiki.duraspace.org/display/hydra/Hydra+Plugins+Working+Group).
+This document contains guidelines and expectations for developing Hyrax plugins. It is one of the stated deliverables of the [Hydra Plugins Working Group](https://wiki.duraspace.org/display/hydra/Hydra+Plugins+Working+Group)
+
+_(NOTE: the working group was started before Project Hydra changed it's name to Samvera)._
 
 These guidelines are supplementary and subordinate to existing guidelines that are documented elsewhere, including:
   * [**General contributing guidelines**](https://github.com/projecthydra/hydra/blob/master/CONTRIBUTING.md)
   * [**Project promotion process**](http://projecthydra-labs.github.io/promotion.html)
 
-## What is a "Hydra plugin"?
+## What is a "Hyrax plugin"?
 
-A Hydra plugin is a Ruby gem that interacts with the Hyrda framework in the context of a Rails application.
+A Hyrax plugin is a Ruby gem that interacts with the Hyrax framework in the context of a Rails application.
 
 ## Architecture
 
-1. A plugins **must** be a Ruby gem.
+1. A plugin **must** be a Ruby gem.
 
    **Justification:** Gems are the standard way to share Ruby code.
 
-1. A plugin **should** be a[Railtie](http://api.rubyonrails.org/classes/Rails/Railtie.html) if it needs to interact with the Rails framework.
+1. A plugin **should** be a [Railtie](http://api.rubyonrails.org/classes/Rails/Railtie.html) if it needs to interact with the Rails framework.
 
    **Justification:** Railties provide a standard way of interacting with the Rails framework.
 
@@ -28,7 +30,7 @@ A Hydra plugin is a Ruby gem that interacts with the Hyrda framework in the cont
 
 1. Plugins **should** use [semantic versioning](http://semver.org).
 
-1. Plugins **should** follow established Hydra coding conventions and design patterns wherever applicable.
+1. Plugins **should** follow established Hyrax coding conventions and design patterns wherever applicable.
 
 1. Instance methods that are not part of the plugin's interface **should not** be public.
 
@@ -36,7 +38,7 @@ A Hydra plugin is a Ruby gem that interacts with the Hyrda framework in the cont
 
    **Justification:** In the context of Rails Engines, the default routing proxy depends on your context. Typically, it will be either the routing proxy for the main application, or the routing proxy for the engine. By default, Rails creates helper methods for accessing the routing proxies within your views. The helper method for the main applications routing proxy is `main_app`, while the helper method for the routing proxy of your engine is the engine's name, downcased and underscored, e.g. if your engine is named `MyCoolPlugin`, then the routing proxy can be accessed via the helper method `my_cool_plugin`.
 
-   This guideline is meant to reinforce the [existing guidelines for using routing proxies in Rails Engines](http://edgeguides.rubyonrails.org/engines.html#routes). Adhering to this guideline reduces potential conflict when using url helpers across different Hydra plugins.
+   This guideline is meant to reinforce the [existing guidelines for using routing proxies in Rails Engines](http://edgeguides.rubyonrails.org/engines.html#routes). Adhering to this guideline reduces potential conflict when using url helpers across different Hyrax plugins.
 
 1. Plugins **should not** overwrite classes or modules from other gems.
 
@@ -44,7 +46,7 @@ A Hydra plugin is a Ruby gem that interacts with the Hyrda framework in the cont
 
 ## Installation
 
-1. Plugins **should** use Rails generators for making changes to their host Hydra application.
+1. Plugins **should** use Rails generators for making changes to their host Hyrax application.
 
    **Justification:**
 
@@ -115,7 +117,7 @@ The term **interface** in this context means all the ways in which the host appl
   
 1. Public instance methods, class methods, and module methods that are part of the plugin's interface **must** be documented with [YARD](http://yardoc.org/), using `@api` tags to indicate which methods are part of the plugin's interface.
 
-   **Justification:** The use of the `@api` tag is a convenient way for plugin authors to define methods intended to be used by downstream adopters, and conforms to existing Hydra contribution guidelines that specify including inline documentation in YARD.
+   **Justification:** The use of the `@api` tag is a convenient way for plugin authors to define methods intended to be used by downstream adopters, and conforms to existing Hyrax contribution guidelines that specify including inline documentation in YARD.
 
 ## Tutorials
 
