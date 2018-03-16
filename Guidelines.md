@@ -2,16 +2,23 @@
 
 This document contains guidelines and expectations for developing Hydra plugins. It is one of the stated deliverables of the [Hydra Plugins Working Group](https://wiki.duraspace.org/display/hydra/Hydra+Plugins+Working+Group).
 
-These guidelines are supplementary, and subordinate, to existing guidelines that are documented elsewhere, including:
+These guidelines are supplementary and subordinate to existing guidelines that are documented elsewhere, including:
   * [**General contributing guidelines**](https://github.com/projecthydra/hydra/blob/master/CONTRIBUTING.md)
   * [**Project promotion process**](http://projecthydra-labs.github.io/promotion.html)
 
-
 ## Architecture
 
-1. Plugins **must** be Ruby gems.
+1. A plugins **must** be a Ruby gem.
 
-1. Plugins **should** be Railties or Rails engines.
+   **Justification:** Gems are the standard way to share Ruby code.
+
+1. A plugin **should** be a[Railtie](http://api.rubyonrails.org/classes/Rails/Railtie.html) if it needs to interact with the Rails framework.
+
+   **Justification:** Railties provide a standard way of interacting with the Rails framework.
+
+1. A plugin **may** be a [Rails Engine](http://api.rubyonrails.org/classes/Rails/Engine.html) if it provides models, views, controllers, routing, or other other Rails application entities.
+
+   **Justification:** Rails Engines provide a structure that is consistent with Rails apps.
 
 1. Plugins **must** have a unique namespace under which classes and modules are defined.
 
@@ -34,7 +41,7 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
    **Justification:**
 
      * Generators are a proven and robust standard for allowing gems to modify host applications and provide feedback on changes that have occurred.
-     
+
      * Generators provide a conventional location for implementers to explore and debug the code that is makes changes to a host application.
 
 1. Plugins **should** only generate or insert code into the host application when necessary.
@@ -46,6 +53,8 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 1. Plugins **should** print meaningful error messages in case of a failure during installation.
 
    **Justification:** It is always a good idea to provide implementers with as much meaningful information as possible, so that they can either resolve the issue themselves, or provide a meaningful error message to the community or in a bug report when seeking help. Plugins should prefer to fail at installation time rather than later on if at all possible.
+   
+1. Plugins **should** abort installation if required dependencies are missing.
 
 1. Plugins **should** undo any changes made to the host application during a failed installation.
 
@@ -62,6 +71,7 @@ These guidelines are supplementary, and subordinate, to existing guidelines that
 ## Installation Documentation
 
 The term **installation** in this context means all steps required to enable the plugin within the host application. This may include, but is not limited to:
+
   * Rails generators
   * ad-hoc scripts
   * manual setup instructions
